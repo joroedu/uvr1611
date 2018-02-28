@@ -4,6 +4,7 @@ include_once("lib/login/session.inc.php");
 include_once("lib/error.inc.php");
 
 try {
+    login_check();
 	if($database->isProtected($chartId) == false || login_check()) {
 	    echo preg_replace('/"(-?\d+\.?\d*)"/', '$1', json_encode($database->queryAnalog($date,$chartId,$period)));
 	}
